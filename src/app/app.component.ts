@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'secret-code';
+
+    receberTentativa(tentativa: string[]) {
+    console.log('Tentativa recebida do filho:', tentativa);
+    // Aqui você pode processar, verificar ou armazenar a tentativa
+  
+  }
 }

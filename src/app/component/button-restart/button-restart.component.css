@@ -1,0 +1,32 @@
+
+.restart-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px 30px 0 0;
+}
+
+.circle-wrapper {
+  width: 80px;
+  height: 80px;
+  background-color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  border: solid rgb(38, 28, 28) 1px;
+  margin: 12px;
+}
+
+.circle-button {
+  width: 60px;
+  height: 60px;
+  background-color: red;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}

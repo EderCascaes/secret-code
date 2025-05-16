@@ -1,0 +1,42 @@
+.instructions {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end; /* alinha à direita */
+  max-width: 500px;
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  background-color: #e1f5fe; 
+  border: 2px solid #0288d1;
+  margin: 30px; 
+}
+
+.roles {
+  padding-left: 15px;  
+}
+
+.section-title {
+  text-align: center;
+  font-weight: bold;
+  font-size: 18px;
+  margin-bottom: 5px;  
+}
+
+.role-detail {
+  margin: 10px 0;
+}
+
+.color-dot {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  margin-right: 10px;
+  border: 1px solid #333;
+  vertical-align: middle;
+
+  &.red { background-color: red; }
+  &.green { background-color: green; }
+  &.white { background-color: white; }
+}
+

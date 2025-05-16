@@ -1,0 +1,247 @@
+.container {
+ width: auto;
+ height: auto;
+ padding: 30px;
+ background-color: black;
+ margin: 30px;
+ border-radius: 10px;
+}
+
+.panel-flex {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 40px; /* Aumentado */
+}
+
+
+/* Garante que todos os filhos ocupem 100% em telas menores */
+.panel-flex > * {
+  flex: 1 1 300px; /* cresce, encolhe, tamanho mínimo */
+  min-width: 300px; /* impede que fiquem muito estreitos */
+  box-sizing: border-box;
+}
+
+.panel {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;    
+  align-items: start;        
+  min-height: 80vh;         
+  background-color: #adbad6;
+  border-radius: 10px;
+  background-image: url('/assets/img/img_02.jpg');
+  position: relative;
+}
+
+
+
+.title {
+  display: flex;
+  align-items: center;      
+  justify-content: center;   
+  gap: 10px;     
+  height: 50px;
+  width: auto;
+  background-color: #d1d2d4;
+  border-color: #000408;
+  border-radius: 10px;
+  margin-bottom: 5px;
+  padding: 0 10px;
+}
+
+.title-icon {
+  height: 30px;              
+  width: auto;
+}
+
+
+
+
+.instructions{
+  flex: 1;
+  max-width: 800px;
+  width: 100%;
+  border-radius: 10px;
+  border-color: #1c5fb8;
+  background-color: #d1d2d4;
+  margin: 30px;
+  margin-bottom: 20px;
+}
+
+
+
+.content {
+  flex: 1;
+  width: 100%;
+  max-width: 100%; /* Altere aqui de 800px para 100% */
+  padding: 20px;
+  box-sizing: border-box;
+  border-radius: 10px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  background-color: #fff;
+  border: 3px solid #130404;
+  transform: translateY(-6px);
+  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow-x: auto; /* Garante rolagem se conteúdo for muito grande */
+
+    &:hover {
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3); 
+    transform: translateY(-10px);
+  }
+}
+
+
+
+
+.game-board {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f2f2f2;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    font-family: Arial, sans-serif;
+  }
+
+
+  .status {
+    padding: 5px;
+    font-weight: bold;
+    border-radius: 8px;
+    text-align: center;
+    margin: 30px;
+    font-size: 16px;
+    border: 3px solid #130404;
+
+    &.game-active {
+      background-color: rgb(201, 219, 201);
+      color: rgb(105, 54, 54);
+    }
+
+    &.game-over {
+      background-color: rgb(175, 114, 114);
+      color: white;
+    }
+  }  
+ 
+
+
+  .color-sequence {
+  display: flex;
+  justify-content: space-between;
+ 
+}
+
+.attempts {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border: 3px solid #130404;
+  border-radius: 8px;
+  gap: 20px;
+}
+
+
+  .game-message {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .sequenceFind{
+    background-color: beige;
+  }
+
+
+.color-management {
+  margin: 20px 0;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+
+.color-list {
+  font-style: italic;
+  color: brown;
+  font-size: 36px;
+}
+
+
+
+.restart-panel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 400px;
+  padding: 20px;
+  margin: 30px;
+  background-color: #e0e7ff; 
+  border-radius: 12px;
+  border: 2px solid #333;
+
+}
+
+
+
+/* Botão redondo já tem estilo, mas pode reforçar aqui se quiser */
+.circle-button {
+  width: 60px;
+  height: 60px;
+  background-color: red;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+  transition: transform 0.2s ease;
+}
+
+
+/* Novo painel com fundo diferenciado */
+.extra-panel {
+  margin: 20px 30px;
+  padding: 20px;
+  background-color: #e1f5fe; 
+  border: 2px solid #0288d1;
+  border-radius: 10px;
+}
+
+/* Mantém os estilos antigos para color-list e color-management */
+.color-list {
+  font-style: italic;
+  color: brown;
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+
+.color-management {
+  margin: 10px 0;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.color-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.btn-color {
+  padding: 6px 10px;
+  background-color: #2d89ef;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+

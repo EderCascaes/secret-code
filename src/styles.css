@@ -1,1 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
+  .vermelho { background-color: red; }
+  .azul     { background-color: blue; }
+  .amarelo  { background-color: yellow; }
+  .verde    { background-color: green; }
+  .roxo     { background-color: #993399; }
+  .marrom   { background-color: #8B4513; }
+  .preto    { background-color: black; }
+  .branco   { background-color: white; }

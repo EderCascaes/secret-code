@@ -1,0 +1,29 @@
+<div class="attempt-row">
+  <ng-container *ngIf="currentAttemptIndex === attemptIndex; else pastAttempt">
+    <!-- Linha de selects + botão -->
+    <div class="attempt-line">
+      <div class="select-group">
+        <select *ngFor="let pos of positions; let j = index" [(ngModel)]="currentColors[j]">
+          <option *ngFor="let color of availableColors.colors" [value]="color">{{ color }}</option>
+        </select>
+      </div>
+      <button class="btn" (click)="onValidate()">Validar</button>
+    </div>
+  </ng-container>
+
+  <!-- Linha de cores validadas (após clique) -->
+    <ng-template #pastAttempt>
+      <div class="attempt-line">
+        <div class="color-group">
+          <div class="color-box" *ngFor="let color of attemptData.guess.colors" [ngClass]="color"></div>
+        </div>
+      </div>
+    </ng-template>
+
+    <!-- Feedback -->
+    <div class="result" *ngIf="attemptIndex < currentAttemptIndex && attemptData">
+      <div class="feedback-grid">
+        <div *ngFor="let color of getFeedbackColors(attemptData.result)" class="feedback-circle" [ngStyle]="{ 'background-color': color }"></div>
+      </div>
+    </div>
+</div>

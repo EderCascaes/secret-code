@@ -1,0 +1,86 @@
+<div class="container">
+  <div class="title">      
+      <img src="/assets/img/img_04.jpg" alt="Exercite o cérebro." class="title-icon">
+      <h1>Secret Code</h1>
+     </div>
+
+  <div class="panel">
+    <div class="panel-flex">
+    <app-game-objective></app-game-objective>
+
+    <div class="content">    
+      <!-- Sequência secreta (apenas exibida após o jogo terminar) -->
+     <div class="status" [ngClass]="gameOver ? 'game-over' : 'game-active'">
+        <p>{{ gameOver ? ' 🎉 🎉 Sequência correta 🎉 🎉' : 'Descubra a sequência gerada pela IA' }}</p>
+        <!-- Mostra os quadrados apenas quando gameOver for true -->
+        <div class="color-sequence" *ngIf="gameOver">
+          <div class="color-box" *ngFor="let color of secretSequence.colors" [ngClass]="color"></div>
+        </div>
+    </div>
+
+      
+      <!-- Tentativas -->
+       <div class="attempts">
+        <app-attempt
+          *ngFor="let i of allAttempts"
+          [attemptIndex]="i"
+          [currentAttemptIndex]="currentAttemptIndex"
+          [positions]="positions"
+          [currentColors]="currentColors"
+          [availableColors]="availableColors"
+          [attemptData]="attempts[i]"
+          (validate)="validateGuess()"
+        ></app-attempt>
+      </div>
+            
+      <!-- Mensagem final -->
+      <div class="sequenceFind">
+          <div *ngIf="gameOver" class="game-message">
+            <p *ngIf="won">🎉 Parabéns! Você acertou!</p>
+            <p *ngIf="!won">❌ Tentativas esgotadas! Tente novamente.</p>
+          </div>
+      </div>
+    </div>     
+      
+
+       <!-- Novo painel separado -->
+      <div class="extra-panel">
+          <!-- Mostrar as cores disponíveis -->
+          <div class="color-list">
+            <p><strong>Cores disponíveis:</strong></p>
+            <p>{{ availableColors.colors.join(', ') }}</p>
+          </div>
+
+          <!-- Seção de gerenciamento de cores -->
+          <div class="color-management">
+            <h3>Gerenciar Cores Extras</h3>
+
+            <!-- Adicionar cor -->
+            <div class="color-controls" *ngIf="remainingExtraColors.length > 0">
+              <select [(ngModel)]="selectedColorToAdd">
+                <option [value]="''" disabled selected>Selecione uma cor</option>
+                <option *ngFor="let color of remainingExtraColors" [value]="color">{{ color }}</option>
+              </select>
+              <button class="btn-color" (click)="addColor()" [disabled]="!selectedColorToAdd">Adicionar Cor</button>
+            </div>
+
+            <!-- Remover cor -->
+            <div class="color-controls" *ngIf="removableExtraColors.length > 0">
+              <select [(ngModel)]="selectedColorToRemove">
+                <option [value]="''" disabled selected>Remover uma cor</option>
+                <option *ngFor="let color of removableExtraColors" [value]="color">{{ color }}</option>
+              </select>
+              <button class="btn-color" (click)="removeColor()" [disabled]="!selectedColorToRemove">Remover Cor</button>
+            </div>
+          </div>
+        </div>
+         <!-- Botão restart acima à direita -->    
+         <app-button-restart (buttonClicked)="restartGame()"></app-button-restart>
+         <app-logo></app-logo>
+    </div>  
+  </div> 
+</div>
+
+
+
+
