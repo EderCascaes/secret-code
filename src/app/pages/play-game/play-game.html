@@ -5,16 +5,20 @@
      </div>
 
   <div class="panel">
+    {{ gameOver }}
     <div class="panel-flex">
     <app-game-objective></app-game-objective>
 
     <div class="content">    
       <!-- Sequência secreta (apenas exibida após o jogo terminar) -->
      <div class="status" [ngClass]="gameOver ? 'game-over' : 'game-active'">
-        <p>{{ gameOver ? ' 🎉 🎉 Sequência correta 🎉 🎉' : 'Descubra a sequência gerada pela IA' }}</p>
-        <!-- Mostra os quadrados apenas quando gameOver for true -->
+          <p *ngIf="gameOver !== undefined">
+            {{ gameOver ? ' 🎉 🎉 Sequência correta 🎉 🎉' : 'Descubra a sequência gerada pela IA' }}
+          </p>
         <div class="color-sequence" *ngIf="gameOver">
-          <div class="color-box" *ngFor="let color of secretSequence.colors" [ngClass]="color"></div>
+          <div class="color-group">
+            <div class="color-box" *ngFor="let color of attemptData.guess.colors" [ngClass]="color"></div>
+          </div>
         </div>
     </div>
 
@@ -74,9 +78,10 @@
             </div>
           </div>
         </div>
-         <!-- Botão restart acima à direita -->    
-         <app-button-restart (buttonClicked)="restartGame()"></app-button-restart>
-         <app-logo></app-logo>
+        <div class="footer-panel">
+        <app-button-restart (buttonClicked)="restartGame()"></app-button-restart>
+        <app-logo></app-logo>
+      </div>
     </div>  
   </div> 
 </div>

@@ -45,8 +45,8 @@ export class PlayGameComponent implements OnInit {
     this.currentGuess = new Color([]);
     this.generateSecretSequence();
     this.initGuess();
-    this.gameOver = false;
     this.won = false;
+    this.gameOver = false;
   }
   
   get currentColors(): string[] {

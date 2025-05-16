@@ -108,25 +108,35 @@
 
 
   .status {
-    padding: 5px;
+    padding: 10px;
     font-weight: bold;
     border-radius: 8px;
     text-align: center;
     margin: 30px;
-    font-size: 16px;
+    font-size: 18px;
     border: 3px solid #130404;
+    min-height: 60px;
+    line-height: 1.4;
+    white-space: normal;
 
     &.game-active {
       background-color: rgb(201, 219, 201);
       color: rgb(105, 54, 54);
     }
-
+    
     &.game-over {
       background-color: rgb(175, 114, 114);
       color: white;
     }
   }  
- 
+
+  .status p {
+    white-space: normal;
+    margin: 0;
+    padding: 0;
+    font-size: 18px;
+  }
+
 
 
   .color-sequence {
@@ -245,3 +255,20 @@
   cursor: pointer;
 }
 
+.color-group {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 6px;
+  align-items: center;
+}
+
+
+.footer-panel {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+  gap: 20px;
+  flex-wrap: wrap;
+}
