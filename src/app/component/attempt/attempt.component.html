@@ -14,19 +14,19 @@
   </ng-container>
 
   <!-- Linha de cores validadas (após clique) -->
-    <ng-template #pastAttempt>
-      <!-- Dentro do ng-template -->
-        <div class="attempt-line">
-          <div class="color-group">
-            <div class="color-box" *ngFor="let color of attemptData.guess.colors" [ngClass]="color"></div>
-          </div>
+  <ng-template #pastAttempt>
+    <div class="attempt-wrapper"> <!-- FLEX container horizontal -->
+      <div class="attempt-line">
+        <div class="color-group">
+          <div class="color-box" *ngFor="let color of attemptData.guess.colors" [ngClass]="color"></div>
         </div>
-    </ng-template>
+      </div>
 
-    <!-- Feedback -->
-    <div class="result" *ngIf="attemptIndex < currentAttemptIndex && attemptData">
-      <div class="feedback-grid">
-        <div *ngFor="let color of getFeedbackColors(attemptData.result)" class="feedback-circle" [ngStyle]="{ 'background-color': color }"></div>
+      <div class="result" *ngIf="attemptIndex < currentAttemptIndex && attemptData">
+        <div class="feedback-grid">
+          <div *ngFor="let color of getFeedbackColors(attemptData.result)" class="feedback-circle" [ngStyle]="{ 'background-color': color }"></div>
+        </div>
       </div>
     </div>
+  </ng-template>
 </div>

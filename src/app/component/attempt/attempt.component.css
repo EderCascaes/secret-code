@@ -10,12 +10,6 @@
   box-sizing: border-box;
 }
 
-.attempt-line {
-  display: flex;
-  flex-direction: row; 
-  align-items: center;
-  gap: 10px;
-}
 
 
 .select-group {
@@ -35,8 +29,10 @@ select {
 
 
 .color-box {
-  width: 50px;
+  width: 75px;
   height: 34px; 
+  display: inline-block;
+  vertical-align: middle;
   border-radius: 6px;
   border: 1px solid #ccc;
   box-sizing: border-box;
@@ -45,6 +41,7 @@ select {
 
 select {
   height: 40px;
+  min-width: 70px ;
 }
 
 .button-wrapper {
@@ -72,13 +69,8 @@ select {
   background-color: #1c5fb8;
 }
 
-.result {
-  display: flex;
-  justify-content: flex-end;
-  padding-right: 5px;
-  margin-left: auto;
-  width: 110px; /* mesma largura do botão */
-}
+
+
 
 
 .feedback-grid {
@@ -99,3 +91,32 @@ select {
   width: 110px;
 }
 
+.color-group.past-attempt {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+  height: 40px; /* mesmo valor do select */
+}
+
+
+.attempt-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center; /* Alinha verticalmente */
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.attempt-line {
+  display: flex;
+  flex: 1; /* Ocupa o espaço restante */
+  align-items: center;
+}
+
+.result {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 110px; /* Mesmo tamanho do botão */
+}
