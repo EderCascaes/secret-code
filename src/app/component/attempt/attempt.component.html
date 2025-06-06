@@ -17,15 +17,14 @@
   <ng-template #pastAttempt>
     <div class="attempt-wrapper"> <!-- FLEX container horizontal -->
       <div class="attempt-line">
-        <div class="color-group">
-          <div class="color-box" *ngFor="let color of attemptData.guess.colors" [ngClass]="color"></div>
-        </div>
+        <div class="color-group" *ngIf="attemptData?.guess?.colors">
+        <div class="color-box" *ngFor="let color of attemptData.guess.colors" [ngClass]="color"></div>
       </div>
-
+    </div>
       <div class="result" *ngIf="attemptIndex < currentAttemptIndex && attemptData">
         <div class="feedback-grid">
           <div *ngFor="let color of getFeedbackColors(attemptData.result)" class="feedback-circle" [ngStyle]="{ 'background-color': color }"></div>
-        </div>
+        </div>        
       </div>
     </div>
   </ng-template>

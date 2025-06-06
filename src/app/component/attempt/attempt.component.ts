@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { Attempt } from 'src/app/models/entities/Attempt';
 import { Color } from 'src/app/models/entities/Color';
 
@@ -16,6 +16,7 @@ export class AttemptComponent {
   @Input() attemptData!: Attempt | undefined;
 
   @Output() validate = new EventEmitter<void>();
+
 
   onValidate() {
     this.validate.emit();

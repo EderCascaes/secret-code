@@ -1,9 +1,8 @@
 export class Color{
-    colors : string[] =[]
+    colors : string[] = []
 
     
   constructor(colors: string[]) {
-
     this.colors = colors ;
   }
 
