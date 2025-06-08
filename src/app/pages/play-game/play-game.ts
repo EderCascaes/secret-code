@@ -187,4 +187,9 @@ getFeedbackColors(result: { correctPosition: number, correctColor: number }): st
   return feedback;
 }
 
+updateMaxAttempts(newMax: number) {
+  this.maxAttempts = newMax;
+  this.restartGame();
+}
+
 }

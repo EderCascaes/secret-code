@@ -1,0 +1,12 @@
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo img {
+  height: 30px; /* menor, mais proporcional ao footer */
+  width: auto;
+  border-radius: 50%;
+  border: 1px solid black;
+}

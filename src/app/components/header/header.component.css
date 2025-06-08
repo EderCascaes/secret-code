@@ -1,0 +1,21 @@
+.title {
+  display: flex;
+  align-items: center;      
+  justify-content: center;   
+  gap: 10px;     
+  height: 50px;
+  width: auto;
+  background-color: #d1d2d4;
+  border-color: #000408;
+  border-radius: 10px;
+  margin-bottom: 5px;
+  padding: 0 10px;
+}
+
+
+.title-icon {
+  height: 30px;              
+  width: auto;
+}
+
+

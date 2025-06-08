@@ -1,0 +1,6 @@
+<div class="attempt-config">
+  <label for="maxAttempts"><strong>Máximo de Tentativas:</strong></label>
+  <select id="maxAttempts" [(ngModel)]="selected" (change)="onSelectionChange()">
+    <option *ngFor="let option of attemptOptions" [value]="option">{{ option }}</option>
+  </select>
+</div>

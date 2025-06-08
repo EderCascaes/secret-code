@@ -1,53 +1,11 @@
-<div class="container">
-  <div class="title">      
-      <img src="/assets/img/img_04.jpg" alt="Exercite o cérebro." class="title-icon">
-      <h1>Secret Code</h1>
-     </div>
+<div class="container">  
+  <app-header></app-header>
 
   <div class="panel">
-    {{ gameOver }}
-    <div class="panel-flex">
-    <app-game-objective></app-game-objective>
+    <div class="panel-1">
+      <app-game-objective></app-game-objective>
 
-    <div class="content">    
-      <!-- Sequência secreta (apenas exibida após o jogo terminar) -->
-     <div class="status" [ngClass]="gameOver ? 'game-over' : 'game-active'">
-          <p *ngIf="gameOver !== undefined">
-            {{ gameOver ? ' 🎉 🎉 Sequência correta 🎉 🎉' : 'Descubra a sequência gerada pela IA' }}
-          </p>
-        <div class="color-sequence" *ngIf="gameOver">
-          <div class="color-group">
-            <div class="color-box" *ngFor="let color of attemptData.guess.colors" [ngClass]="color"></div>
-          </div>
-        </div>
-    </div>
-
-      
-      <!-- Tentativas -->
-       <div class="attempts">
-        <app-attempt
-          *ngFor="let i of allAttempts"
-          [attemptIndex]="i"
-          [currentAttemptIndex]="currentAttemptIndex"
-          [positions]="positions"
-          [currentColors]="currentColors"
-          [availableColors]="availableColors"
-          [attemptData]="attempts[i]"
-          (validate)="validateGuess()"
-        ></app-attempt>
-      </div>
-            
-      <!-- Mensagem final -->
-      <div class="sequenceFind">
-          <div *ngIf="gameOver" class="game-message">
-            <p *ngIf="won">🎉 Parabéns! Você acertou!</p>
-            <p *ngIf="!won">❌ Tentativas esgotadas! Tente novamente.</p>
-          </div>
-      </div>
-    </div>     
-      
-
-       <!-- Novo painel separado -->
+     <!-- Novo painel separado -->
       <div class="extra-panel">
           <!-- Mostrar as cores disponíveis -->
           <div class="color-list">
@@ -77,12 +35,48 @@
               <button class="btn-color" (click)="removeColor()" [disabled]="!selectedColorToRemove">Remover Cor</button>
             </div>
           </div>
+          <div class="config-panel">
+            <app-attempt-config (maxAttemptsChange)="updateMaxAttempts($event)"></app-attempt-config>
         </div>
-        <div class="footer-panel">
-        <app-button-restart (buttonClicked)="restartGame()"></app-button-restart>
-        <app-logo></app-logo>
-      </div>
+        </div>  
+
     </div>  
+    <div class="panel-2">   
+            <!-- Sequência secreta (apenas exibida após o jogo terminar) -->
+          <div class="status" [ngClass]="gameOver ? 'game-over' : 'game-active'">
+                <p *ngIf="gameOver !== undefined">
+                  {{ gameOver ? ' 🎉 🎉 Sequência correta 🎉 🎉' : 'Descubra a sequência gerada pela IA' }}
+                </p>
+              <div class="color-sequence" *ngIf="gameOver">
+                <div class="color-group">
+                  <div class="color-box" *ngFor="let color of attemptData.guess.colors" [ngClass]="color"></div>
+                </div>
+          </div>
+      </div>
+
+      <!-- Tentativas -->
+        <div class="attempts">
+        <app-attempt
+          *ngFor="let i of allAttempts"
+          [attemptIndex]="i"
+          [currentAttemptIndex]="currentAttemptIndex"
+          [positions]="positions"
+          [currentColors]="currentColors"
+          [availableColors]="availableColors"
+          [attemptData]="attempts[i]"
+          (validate)="validateGuess()"
+        ></app-attempt>
+      </div>
+              
+      <!-- Mensagem final -->
+      <div class="sequenceFind">
+          <div *ngIf="gameOver" class="game-message">
+            <p *ngIf="won">🎉 Parabéns! Você acertou!</p>
+            <p *ngIf="!won">❌ Tentativas esgotadas! Tente novamente.</p>
+          </div>
+      </div>  
+    </div>
+    <app-footer></app-footer>
   </div> 
 </div>
 
